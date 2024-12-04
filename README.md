@@ -125,6 +125,7 @@ INFO - Starting WAMP-CRA authentication on realm 'ucss' as user 'API_Controller_
 INFO - Established session: 104
 INFO - Ready to process WAMP RPCs
 ````
+
 In order to send messages to be processed, the client needs to send them to the socket server.
 
 ### The socket server
@@ -156,6 +157,24 @@ INFO - Server connection: ('127.0.0.1', 53570)
 ````
 
 The server is configured to accept only one connection at any time, but note, multiple instances of DECS<->VISA could be running on a single machine (each connecting to different oi.DECS based systems).  In this case the `.env` files for each instance should be updated to ensure that each socket server is exposing a unique port.
+
+If multiple instances of DECS<->VISA are trying to run on the same port, the error message in the log will be:
+
+````
+INFO - Unable to bind to socket server: [Errno 98] Address already in use
+INFO - Socket server shutting down
+````
+
+To solve, change the port number in your `.env` file and in `decs_visa_setting.py`: 
+
+````
+# Connection details for the socket_server
+# These values should be consistent with
+# those in the .env file.
+PORT = 33576
+HOST = "localhost"
+````
+
 
 **_Caveat utilitor_:** In this configuration users should be sure they are connecting to the correct system - the `*IDN?` query could be useful here!
 
