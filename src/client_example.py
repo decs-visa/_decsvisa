@@ -12,6 +12,8 @@ import pyvisa as visa
 from decs_visa_tools.decs_visa_settings import SHUTDOWN
 from decs_visa_tools.decs_visa_settings import READ_DELIM
 from decs_visa_tools.decs_visa_settings import WRITE_DELIM
+from decs_visa_tools.decs_visa_settings import HOST
+from decs_visa_tools.decs_visa_settings import PORT
 
 def main():
     """
@@ -27,8 +29,8 @@ def main():
 
     # define the connection parameters for the socket server
     # NB the correct address and port are required
-    decs_visa_server_ip = "localhost"
-    decs_visa_server_port = "33576"
+    decs_visa_server_ip = HOST
+    decs_visa_server_port = PORT
 
     # generate the server connection string
     pyvisa_connection = f"TCPIP0::{decs_visa_server_ip}::{decs_visa_server_port}::SOCKET"
