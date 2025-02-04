@@ -26,6 +26,8 @@ Once a message arrives on the queue, the WAMP rRPC is processed as usual, and th
 
 ## Setup
 
+A video demostrating the set up can be found [here.](https://www.youtube.com/watch?v=fFrF1hJVjfQ)
+
 The implementation requires `python >= 3.10` as the `match/case` syntax is used.  The other requirements can be installed using the file `requirements.txt` with a command along the lines of:
 
 `pip3 install -r requirements.txt`
