@@ -4,6 +4,7 @@ Logging module
 
 import logging
 import platform
+from pathlib import Path
 
 # Set up logs
 logger = logging.getLogger(__name__)
@@ -16,7 +17,8 @@ formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 
 running_on = platform.platform()
 if running_on.startswith("Windows"):
-    fh = logging.FileHandler('decs_visa.log')
+    file_path = Path("decs_visa.log")
+    fh = logging.FileHandler(file_path)
     fh.setLevel(logging.DEBUG)
     fh.setFormatter(formatter)
     logger.addHandler(fh)
