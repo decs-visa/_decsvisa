@@ -28,6 +28,7 @@ class OIRecordType(IntEnum):
     ANGULAR_POS = 1090
     MAG_FIELD_VEC = 1400
     PSU_CURRENT_VEC = 1410
+    MAG_GROUP_STATE = 1420
     SPEED = 10010
 
 # | Value | Data Record Type                                                  |
@@ -136,6 +137,9 @@ def decs_response_parser(resp: CallResult) -> str:
                 assert n_args == 8, "Length of data record inconsistent with record type"
                 tuple_str = (str(resp.results[4]), str(resp.results[5]), str(resp.results[6]))
                 return ','.join(tuple_str) 
+            case  OIRecordType.MAG_GROUP_STATE:
+                assert n_args == 10, "Length of data record inconsistent with record type"
+                return str(resp.results[5])
             case  OIRecordType.PRES_CONTROL_LOOP:
                 assert n_args == 11, "Length of data record inconsistent with record type"
                 return str(resp.results[5])

@@ -34,7 +34,7 @@ HOST = "localhost"
 SHUTDOWN = "SHUTDOWN"
 
 # socket server write delimiter
-WRITE_DELIM = "\r\n"
+WRITE_DELIM = "\n"
 
 # socket server read delimiter
-READ_DELIM = "\r\n"
+READ_DELIM = "\n"
