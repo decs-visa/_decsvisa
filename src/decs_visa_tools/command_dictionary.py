@@ -56,6 +56,7 @@ Proteox_cmd_uri = {
     "get_MAG_STATE"     : "oi.decs.magnetic_field_control.VRM_01.state",
     "get_SWZ_STATE"     : "oi.decs.magnetic_field_control.VRM_01.SWZ.state",
     "set_MAG_TARGET"    : "oi.decs.magnetic_field_control.VRM_01.set_field_target",
+    "get_MAG_TARGET"    : "oi.decs.magnetic_field_control.VRM_01.field_target",
     "set_MAG_STATE"     : "oi.decs.magnetic_field_control.VRM_01.set_state",
     "set_MAG_X_STATE"   : "oi.decs.magnetic_field_control.VRM_01.MAG_X.set_state",
     "set_MAG_Y_STATE"   : "oi.decs.magnetic_field_control.VRM_01.MAG_Y.set_state",

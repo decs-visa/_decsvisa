@@ -122,8 +122,11 @@ def decs_response_parser(resp: CallResult) -> str:
                 | OIRecordType.FREQUENCY \
                 | OIRecordType.RESISTANCE \
                 | OIRecordType.SPEED:
-                assert n_args == 6, "Length of data record inconsistent with record type"
-                return str(resp.results[4])
+                assert n_args == 6 or n_args == 7, "Length of data record inconsistent with record type"
+                if n_args == 6:
+                    return str(resp.results[4])
+                elif n_args == 7:
+                    return str(resp.results[3])
             case  OIRecordType.CONTROL_LOOP \
                 | OIRecordType.ANGULAR_POS \
                 | OIRecordType.SW_STATE:
