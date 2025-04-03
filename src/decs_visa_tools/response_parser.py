@@ -126,7 +126,8 @@ def decs_response_parser(resp: CallResult) -> str:
                 if n_args == 6:
                     return str(resp.results[4])
                 elif n_args == 7:
-                    return str(resp.results[3])
+                    tuple_str = (str(resp.results[1]), str(resp.results[2]), str(resp.results[3]))
+                    return ','.join(tuple_str) 
             case  OIRecordType.CONTROL_LOOP \
                 | OIRecordType.ANGULAR_POS \
                 | OIRecordType.SW_STATE:
