@@ -21,6 +21,7 @@ class OIRecordType(IntEnum):
     POWER = 70
     FREQUENCY = 80
     RESISTANCE = 90
+    VALVE_STATE = 1000
     SW_STATE = 1020
     HTR_POWER = 1040
     CONTROL_LOOP = 1050
@@ -130,7 +131,8 @@ def decs_response_parser(resp: CallResult) -> str:
                     return ','.join(tuple_str) 
             case  OIRecordType.CONTROL_LOOP \
                 | OIRecordType.ANGULAR_POS \
-                | OIRecordType.SW_STATE:
+                | OIRecordType.SW_STATE \
+                | OIRecordType.VALVE_STATE:
                 assert n_args == 7, "Length of data record inconsistent with record type"
                 return str(resp.results[4])
             case  OIRecordType.HTR_POWER:

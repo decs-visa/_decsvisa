@@ -60,6 +60,15 @@ def decs_command_parser(cmd: str) -> tuple [str, list]:
         else:
             # ensure heater output is enabled
             args.append(True)
+            
+    elif uri.endswith("circulate_rate") or uri.endswith("circulate_sample_temperature"):
+        args.append(float(str(cmd_parts[1]).strip()))
+    elif uri.endswith("circulate_linked"):
+        if cmd_parts[1].strip() == 'true' or cmd_args[6].strip() == 'True':
+            args.append(True)
+        elif cmd_parts[1].strip() == 'false' or cmd_args[6].strip() == 'False':
+            args.append(False)
+            
     elif "pressure_control" in uri and uri.endswith("setpoint"):
         # set_ command for pressure
         args.append(float(str(cmd_parts[1]).strip()))
@@ -126,3 +135,4 @@ def decs_command_parser(cmd: str) -> tuple [str, list]:
         raise NotImplementedError("Command / uri pattern incorrect, or not yet implemented")
 
     return uri, args
+
