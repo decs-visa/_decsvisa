@@ -30,6 +30,8 @@ class OIRecordType(IntEnum):
     MAG_FIELD_VEC = 1400
     PSU_CURRENT_VEC = 1410
     MAG_GROUP_STATE = 1420
+    MAG_STATE = 1421
+    MAG_FIELD_TARGET = 1423
     SPEED = 10010
 
 # | Value | Data Record Type                                                  |
@@ -63,6 +65,8 @@ class OIRecordType(IntEnum):
 # |  1400 | [OiMagnetFieldVectorRecord](#magnet-field-vector-record)          |
 # |  1410 | [OiMagnetCurrentVectorRecord](#magnet-current-vector-record)      |
 # |  1420 | [OiMagnetPsuGroupStateRecord](#magnet-psu-group-state-record)     |
+# |  1421 | [OiMagnetStateRecord](#magnet-vector-rotate-state-record)         |
+# |  1423 | [OiMagnetFieldTargetRecord](#magnet-field-target-record)          |
 # |  1430 | [OiExcitationRecord](#excitation-record)                          |
 # |  1440 | [OiLakeshoreConfigurationRecord](#lakeshore-configuration-record) |
 # |  1450 | [OiHeliumReadingModeRecord](#helium-reading-mode-record)       |
@@ -112,6 +116,9 @@ def decs_response_parser(resp: CallResult) -> str:
     # match the record type (requires python >= 3.10)
     try:
         match data_record_type:
+            case OIRecordType.MAG_STATE:
+                assert n_args == 3, "Length of data record inconsistent with record type"
+                return str(resp.results[1])
             case  OIRecordType.TEMPERATURE \
                 | OIRecordType.PRESSURE \
                 | OIRecordType.MASS_FLOW \
@@ -138,6 +145,10 @@ def decs_response_parser(resp: CallResult) -> str:
             case  OIRecordType.HTR_POWER:
                 assert n_args == 8, "Length of data record inconsistent with record type"
                 return str(resp.results[4])
+            case OIRecordType.MAG_FIELD_TARGET:
+                assert n_args == 8, "Length of data record inconsistent with record type"
+                tuple_str = (str(resp.results[2]), str(resp.results[3]), str(resp.results[4]))
+                return ','.join(tuple_str)
             case  OIRecordType.MAG_FIELD_VEC \
                 | OIRecordType.PSU_CURRENT_VEC:
                 assert n_args == 8, "Length of data record inconsistent with record type"
