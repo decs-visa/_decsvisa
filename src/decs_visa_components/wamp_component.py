@@ -286,7 +286,7 @@ class Component(ApplicationSession):
                         host_version_full = await self.checked_rpc(rpc_uri)
                         version = str(host_version_full.results[0])
                         logger.debug("Extractracted values: %s", version)
-                        idn_string = f"Oxford Instruments, oi.DECS, {host_name}, {version}"
+                        idn_string = f"QD - Oxford, oi.DECS, {host_name}, {version}"
                         logger.debug("IDN string: %s", idn_string)
                         r.put(idn_string)
                     except Exception:
