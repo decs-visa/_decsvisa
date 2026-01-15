@@ -39,6 +39,10 @@ def main():
 
     # Read in user / router / server details
     load_dotenv(DOT_ENV_PATH, verbose=True)
+
+    # print the .env path
+    logger.info("Reading .env file from: %s", DOT_ENV_PATH)
+    
     # there isn't really much in the way of useful error reporting
     # from load_dotenv, so check that something was read after this
     user =         os.getenv("WAMP_USER")
