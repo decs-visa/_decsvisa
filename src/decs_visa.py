@@ -9,6 +9,7 @@ import queue
 import threading
 import os
 import sys
+from pathlib import Path
 from sys import version_info
 
 from dotenv import load_dotenv
@@ -41,7 +42,7 @@ def main():
     load_dotenv(DOT_ENV_PATH, verbose=True)
 
     # print the .env path
-    logger.info("Reading .env file from: %s", DOT_ENV_PATH)
+    logger.info("Reading .env file from: %s", str(Path(DOT_ENV_PATH).resolve()))
     
     # there isn't really much in the way of useful error reporting
     # from load_dotenv, so check that something was read after this
