@@ -1,4 +1,4 @@
 pyvisa
 pyvisa-py
 python-dotenv
-autobahn
+autobahn == 24.4.2

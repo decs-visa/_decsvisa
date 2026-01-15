@@ -13,6 +13,8 @@ from sys import version_info
 
 from dotenv import load_dotenv
 
+from autobahn._version import __version__ as autobahn_version
+
 from autobahn.asyncio.wamp import ApplicationRunner
 
 from decs_visa_components.simple_socket_server import simple_server
@@ -22,6 +24,9 @@ from decs_visa_tools.base_logger import logger
 # Import some settings
 from decs_visa_tools.decs_visa_settings import PYTHON_MIN_MAJOR
 from decs_visa_tools.decs_visa_settings import PYTHON_MIN_MINOR
+from decs_visa_tools.decs_visa_settings import PYTHON_MAX_MAJOR
+from decs_visa_tools.decs_visa_settings import PYTHON_MAX_MINOR
+from decs_visa_tools.decs_visa_settings import AUTOBAHN_MAX_VERSION
 from decs_visa_tools.decs_visa_settings import SHUTDOWN
 # and the path to the system settings .env file
 from decs_visa_tools.decs_visa_settings import DOT_ENV_PATH
@@ -115,5 +120,13 @@ if __name__ == "__main__":
         print("Python version not compatible")
         print(f"System is running: Major: {version_info.major}; Minor: {version_info.minor}")
         print(f"Minimum requirements: Major: {PYTHON_MIN_MAJOR}; Minor: { PYTHON_MIN_MINOR}")
+    elif version_info > (PYTHON_MAX_MAJOR, PYTHON_MAX_MINOR):
+        print("Python version not compatible")
+        print(f"System is running: Major: {version_info.major}; Minor: {version_info.minor}")
+        print(f"Maximum requirements: Major: {PYTHON_MAX_MAJOR}; Minor: { PYTHON_MAX_MINOR}")
+    elif autobahn_version > AUTOBAHN_MAX_VERSION:
+        print("autobahn version not compatible")
+        print(f"System is running: {autobahn_version}")
+        print(f"Maximum requirements: {AUTOBAHN_MAX_VERSION}")       
     else:
         main()

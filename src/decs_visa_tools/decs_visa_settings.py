@@ -23,6 +23,18 @@ DOT_ENV_PATH = file_path
 PYTHON_MIN_MAJOR = 3
 PYTHON_MIN_MINOR = 10
 
+# required at least for now due to an issue
+# with autobahn asyncio wamp with python 3.14
+
+PYTHON_MAX_MAJOR = 3
+PYTHON_MAX_MINOR = 13
+
+# required at least for now due to an issue
+# with autobahn asyncio wamp with autobahn > 24
+
+AUTOBAHN_MAX_VERSION = '24.4.2'
+
+
 # Connection details for the socket_server
 # These values should be consistent with
 # those in the .env file.
