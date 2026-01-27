@@ -64,9 +64,10 @@ def decs_command_parser(cmd: str) -> tuple [str, list]:
     elif uri.endswith("circulate_rate") or uri.endswith("circulate_sample_temperature"):
         args.append(float(str(cmd_parts[1]).strip()))
     elif uri.endswith("circulate_linked") or uri.endswith("high_flow"):
-        if cmd_parts[1].strip() == 'true' or cmd_args[6].strip() == 'True':
+        argument = cmd_parts[1].strip()
+        if argument == 'true' or argument == 'True':
             args.append(True)
-        elif cmd_parts[1].strip() == 'false' or cmd_args[6].strip() == 'False':
+        elif argument == 'false' or argument == 'False':
             args.append(False)
             
     elif "pressure_control" in uri and uri.endswith("setpoint"):
