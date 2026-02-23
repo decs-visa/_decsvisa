@@ -175,6 +175,7 @@ Teslatron_cmd_uri = {
     "get_CIRC_RATE"      : "oi.decs.teslatron.circulate_rate",
     "get_CIRC_LINK"      : "oi.decs.teslatron.circulate_linked",
     "get_CIRC_TEMP"      : "oi.decs.teslatron.circulate_sample_temperature",
+    "get_CIRC_TARGET"    : "oi.decs.teslatron.circulate_target_temperature",
     "get_CIRC_HIGH_FLOW" : "oi.decs.teslatron.circulate_high_flow",
     "get_CIRC_TEMP_STAB" : "oi.decs.teslatron.temperature_stable",
     "get_STATE"          : "oi.decs.teslatron.state",
