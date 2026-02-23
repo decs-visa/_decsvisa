@@ -169,7 +169,7 @@ Teslatron_cmd_uri = {
     "get_AV903"          : "oi.decs.teslatron.C-AV903.state",
     "set_CIRC_RATE"      : "oi.decs.teslatron.set_circulate_rate",
     "set_CIRC_LINK"      : "oi.decs.teslatron.set_circulate_linked",
-    "set_CIRC_TEMP"      : "oi.decs.teslatron.set_circulate_sample_temperature",
+    "set_CIRC_TEMP"      : "oi.decs.teslatron.set_circulate_target_temperature",
     "set_CIRC_HIGH_FLOW" : "oi.decs.teslatron.set_circulate_high_flow",
     "set_CIRC_TEMP_STAB" : "oi.decs.teslatron.set_temperature_stable",
     "get_CIRC_RATE"      : "oi.decs.teslatron.circulate_rate",
