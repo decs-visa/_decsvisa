@@ -31,6 +31,7 @@ class OIRecordType(IntEnum):
     PSU_CURRENT_VEC = 1410
     MAG_GROUP_STATE = 1420
     MAG_STATE = 1421
+    MAG_CURR_TARGET = 1423
     MAG_FIELD_TARGET = 1424
     STATE = 2000
     SPEED = 10010
@@ -67,10 +68,11 @@ class OIRecordType(IntEnum):
 # |  1410 | [OiMagnetCurrentVectorRecord](#magnet-current-vector-record)      |
 # |  1420 | [OiMagnetPsuGroupStateRecord](#magnet-psu-group-state-record)     |
 # |  1421 | [OiMagnetStateRecord](#magnet-vector-rotate-state-record)         |
-# |  1423 | [OiMagnetFieldTargetRecord](#magnet-field-target-record)          |
+# |  1423 | [OiMagnetCurrentTargetRecord](#magnet-current-target-record)      |
+# |  1424 | [OiMagnetFieldTargetRecord](#magnet-field-target-record)          |
 # |  1430 | [OiExcitationRecord](#excitation-record)                          |
 # |  1440 | [OiLakeshoreConfigurationRecord](#lakeshore-configuration-record) |
-# |  1450 | [OiHeliumReadingModeRecord](#helium-reading-mode-record)       |
+# |  1450 | [OiHeliumReadingModeRecord](#helium-reading-mode-record)          |
 # |  5000 | [OiProteoxStateRecord](#proteox-record)                           |
 # |  6000 | [OiLiquidReservoirStateRecord](#liquidreservoir-record)           |
 # | 10000 | [OiUnknownIntegerRecord](#unknown-integer-record)                 |
@@ -159,6 +161,10 @@ def decs_response_parser(resp: CallResult) -> str:
             case  OIRecordType.MAG_GROUP_STATE:
                 assert n_args == 10, "Length of data record inconsistent with record type"
                 return str(resp.results[5])
+            case  OIRecordType.MAG_CURR_TARGET:
+                assert n_args == 10, "Length of data record inconsistent with record type"
+                tuple_str = (str(resp.results[1]), str(resp.results[2]), str(resp.results[3]))
+                return ','.join(tuple_str)
             case  OIRecordType.PRES_CONTROL_LOOP:
                 assert n_args == 11, "Length of data record inconsistent with record type"
                 return str(resp.results[5])
