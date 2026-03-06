@@ -315,7 +315,7 @@ DEBUG - Forwarding Server Sending: 4.0
 
 ### Example client
 
-The `client_example.py` file has a simple TCP/IP client based on the `PyVISA` package that can be used to communicate with DECS<->VISA as a demonstration of how the oi.DECS system could be integrated with a typical VISA based automated measurement system.
+The `client_example.py` file has a simple TCP/IP client based on the `PyVISA` package that can be used to communicate with DECS<->VISA as a demonstration of how the DECS system could be integrated with a typical VISA based automated measurement system.
 
 As a result, this example will likely be familiar to anybody who has used the programmable interface of any VISA type instrument.
 
