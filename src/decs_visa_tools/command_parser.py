@@ -60,7 +60,7 @@ def decs_command_parser(cmd: str) -> tuple [str, list]:
         else:
             # ensure heater output is enabled
             args.append(True)
-            
+
     elif uri.endswith("circulate_rate") or uri.endswith("circulate_target_temperature"):
         args.append(float(str(cmd_parts[1]).strip()))
     elif uri.endswith("circulate_linked") or uri.endswith("high_flow"):
