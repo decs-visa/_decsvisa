@@ -43,7 +43,7 @@ def main():
 
     # print the .env path
     logger.info("Reading .env file from: %s", str(Path(DOT_ENV_PATH).resolve()))
-    
+
     # there isn't really much in the way of useful error reporting
     # from load_dotenv, so check that something was read after this
     user =         os.getenv("WAMP_USER")

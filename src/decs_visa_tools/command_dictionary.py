@@ -120,7 +120,25 @@ Proteox_cmd_uri = {
     "get_CURR_TARGET"   : "oi.decs.magnetic_field_control.VRM_01.output_current_target",
     "PUBLISH"           : "oi.decs.eventlog",
     "get_a_WAMP_error"  : "oi.decs.THIS_WONT_WORK", # used for testing only
-    "set_a_WAMP_error"  : "oi.decs.THIS_WONT_WORK"
+    "set_a_WAMP_error"  : "oi.decs.THIS_WONT_WORK",
+    "get_AV_01_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_01.state",
+    "set_AV_01_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_01.state",
+    "get_AV_02_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_02.state",
+    "set_AV_02_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_02.state",
+    "get_AV_03_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_03.state",
+    "set_AV_03_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_03.state",
+    "get_AV_04_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_04.state",
+    "set_AV_04_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_04.state",
+    "get_AV_05_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_05.state",
+    "set_AV_05_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_05.state",
+    "get_AV_06_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_06.state",
+    "set_AV_06_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_06.state",
+    "get_AV_07_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_07.state",
+    "set_AV_07_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_07.state",
+    "get_AV_08_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_08.state",
+    "set_AV_08_STATE"   : "oi.decs.proteox.3CL_GHS.3CL_AV_08.state",
+    "get_TP_01_STATE"   : "oi.decs.proteox.3CL_TP.3CL_TP_01.state",
+    "set_TP_01_STATE"   : "oi.decs.proteox.3CL_TP.3CL_TP_01.state"
 }
 
 Teslatron_cmd_uri:  dict[str, str]
